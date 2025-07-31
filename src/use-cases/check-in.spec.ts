@@ -36,8 +36,8 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -0.8426902,
-      userLongitude: -52.5221761,
+      userLatitude: 0.0236908,
+      userLongitude: -51.0616141,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
@@ -49,16 +49,16 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -0.8426902,
-      userLongitude: -52.5221761,
+      userLatitude: 0.0236908,
+      userLongitude: -51.0616141,
     })
 
     await expect(() =>
       sut.execute({
         gymId: 'gym-01',
         userId: 'user-01',
-        userLatitude: -0.8426902,
-        userLongitude: -52.5221761,
+        userLatitude: 0.0236908,
+        userLongitude: -51.0616141,
       }),
     ).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
   })
@@ -69,8 +69,8 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -0.8426902,
-      userLongitude: -52.5221761,
+      userLatitude: 0.0236908,
+      userLongitude: -51.0616141,
     })
 
     vi.setSystemTime(new Date(2025, 6, 23, 8, 0, 0))
@@ -78,8 +78,8 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -0.8426902,
-      userLongitude: -52.5221761,
+      userLatitude: 0.0236908,
+      userLongitude: -51.0616141,
     })
     expect(checkIn.id).toEqual(expect.any(String))
   })
