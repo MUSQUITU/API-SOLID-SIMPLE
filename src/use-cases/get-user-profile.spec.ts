@@ -3,6 +3,7 @@ import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-repo
 import { hash } from 'bcryptjs'
 import { InvalidCredentialsError } from './errors/invalid-credentials'
 import { GetUserProfileUseCase } from './get-user-profile'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 let usersRepository: InMemoryUsersRepository
 let sut: GetUserProfileUseCase
@@ -32,6 +33,6 @@ describe('Get User Profile Use Case', () => {
       sut.execute({
         userId: 'non-existing id',
       }),
-    ).rejects.toBeInstanceOf(InvalidCredentialsError)
+    ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 })
